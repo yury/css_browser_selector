@@ -1,9 +1,11 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" id="html" class="tester">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+        
+<html id="html" class="tester">
 	<head>
 		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 		<title>CSS Browser Selector Tester</title>
-		<script src="../css_browser_selector.js" type="text/javascript"></script>
+		<script src="../css_browser_selector.min.js" type="text/javascript"></script>
 		<script src="jquery-1.2.6.min.js" type="text/javascript"></script>
 	</head>
 
@@ -137,19 +139,19 @@
 			["Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en) AppleWebKit/51 (like Gecko) Safari/51"                                        , "webkit safari mac"], // Safari browser for MAC OS X
 			// WebTV
 			["Mozilla/4.0 WebTV/2.8 (compatible; MSIE 4.0)" , "gecko webtv"], // WebTV 2.8
-		]
+		];
 
 		document.writeln('<h1>Current Browser</h1>');
 		document.writeln('<p>'+navigator.userAgent+' - '+document.getElementsByTagName('html')[0].className+'</p>');		
 
 
-		passed = 0;
-		failed = 0;
-		output='';
+		var passed = 0;
+		var failed = 0;
+		var output='';
 	    $.each(user_agent_strings,function(index, item) {
-			ua = item[0];
-			codes_expected = item[1];
-			codes_returned = css_browser_selector(ua).replace(' js','');
+			var ua = item[0];
+			var codes_expected = item[1];
+			var codes_returned = css_browser_selector(ua).replace(' js','');
 			if(codes_expected == codes_returned) {
 				output += '<p style="color: green">'+ua+' - '+codes_returned+'</p>';
 				passed++;
@@ -160,8 +162,8 @@
 			}
 	    });
 		document.writeln('<h1>All tests</h1>');
-		document.writeln('<h2 style="color: green">'+passed+' tests passed</h1>');
-		document.writeln('<h2 style="color: red">'+failed+' tests failed</h1>');
+		document.writeln('<h2 style="color: green">'+passed+' tests passed</h2>');
+		document.writeln('<h2 style="color: red">'+failed+' tests failed</h2>');
 		document.writeln(output);
 	</script>
 
