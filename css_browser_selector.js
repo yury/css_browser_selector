@@ -24,8 +24,8 @@ function css_browser_selector(u) {
             win_='win',
             h=document.getElementsByTagName('html')[0],
             b=[(!(/opera|webtv/i.test(ua))&&/msie\s(\d)/.test(ua)) ? ('ie ie' + RegExp.$1):
+               is('firefox/3') ? is('firefox/3.5') ? gecko_ + ' ff3 ff3_5' : gecko_ + ' ff3 ff3_0':
                is('firefox/2') ? gecko_ + ' ff2':
-               is('firefox/3') ? gecko_ + ' ff3':
                is('gecko/')    ? gecko_ :
                /opera(\s|\/)(\d+)/.test(ua) ? 'opera opera' + RegExp.$2:
                is(konqueror_) ? konqueror_:
@@ -42,8 +42,8 @@ function css_browser_selector(u) {
                is(webtv_) ? webtv_:
                is(win_) ? win_:
                is(freebsd_) ? freebsd_:
-               (is('x11')||is(linux_)) ? linux_:
-               '','js'
+               (is('x11')||is(linux_)) ? linux_: '',
+                'js'
             ],
     class_ = b.join(' ');
     h.className += ' ' + class_;
