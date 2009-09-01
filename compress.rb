@@ -1,5 +1,5 @@
 require 'rubygems'
-require 'yui/compressor'
+require 'yui/compressor'  # sudo gem install sstephenson-yui-compressor
 require "zlib"
 
 compressor = YUI::JavaScriptCompressor.new
